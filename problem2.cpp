@@ -1,20 +1,27 @@
-#include <iostream>;
+#include <iostream>
 using namespace std;
 
 int main() {
-    int n,digit;
-    string result="";
-    cin>>n;
-
-    for(int i=0;i<n;i++) {
-        int num;
-        cin>>num;
-        while (num!=0) {
-            digit=num%10;
+    int t, n, counter_t=0;
+    string result = "";
+    cin>>t;
+    while(true) {
+        cin>>n;
+        int num=n;
+        int  counter_d=0;
+        while(num>0) {
             num=num/10;
-            result+=to_string(digit)+" ";
+            counter_d++;
+        }
+        for(int i=1; i<=counter_d; i++) {
+            result+=to_string(n%10)+" ";
+            n=n/10;
         }
         result+="\n";
+        counter_t++;
+        if(counter_t==t) {
+            break;
+        }
     }
     cout<<result;
     return 0;
